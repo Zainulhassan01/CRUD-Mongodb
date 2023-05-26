@@ -4,33 +4,14 @@ const users = require('./models/user')
 const bodyParser = require('body-parser') 
 const app = express()
 
-app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended: true}));
-// const users = [
-//     {
-//         firstName: 'Tim',
-//         lastName: 'Cook',
-//         admin: true,
-//     }, 
-//     {
-//         firstName: 'dim',
-//         lastName: 'dim',
-//         admin: false,
-//     },
-//     {
-//         firstName: 'dim',
-//         lastName: 'dim',
-//         admin: false,
-//     }
-// ]
-// const users = []
+
 connectDb();
 
 app.get('/', async (req, res) => {
     const user = await users.find({})
     console.log(await users.find({}));
-    // // res.render('index', {users: users.length > 0 ? users : []})
     res.send(user)
 })
 
