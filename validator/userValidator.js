@@ -5,6 +5,6 @@ const userSchema = Joi.object({
         .required(),
 
     city: Joi.string()
-})
+}).required()
 
 module.exports = userSchema
